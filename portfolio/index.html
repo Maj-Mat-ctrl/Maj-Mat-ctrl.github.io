@@ -4,231 +4,150 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./style.css">
-<title>Matéo CORMONT | Portfolio</title>
+  <title>Matéo CORMONT | Portfolio</title>
 
-<script>
-  const lamp = document.getElementById('glowLamp');
+  <style>
+    /* Reset and basics */
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
 
-  // Run flicker animation
-  lamp.style.animation = 'flickerGlow 2.5s ease-in-out forwards';
-</script>
+    body {
+      background: #121212;
+      color: #eee;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
 
-<style>
-   /* Reset and basics */
- * {
-    margin: 0; padding: 0; box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-  }
+    a {
+      color: #e0e0e0;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
 
-  body {
-    background: #121212;
-    color: #eee;
-    line-height: 1.6;
-    scroll-behavior: smooth;
-  }
+    /* Container */
+    .container {
+      width: 90%;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem 0;
+    }
 
-  a {
-    color: #e0e0e0;
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
-  a:hover {
-    color: #e0e0e0;
-  }
-
-  /* Container */
-  .container {
-    width: 90%;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 2rem 0;
-  }
-
-  /* Hero */
-  header {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
-  header h1 {
-    font-size: 3rem;
-    color: #e0e0e0;
-    text-shadow: 0 0 8px #e0e0e0;
-    margin-bottom: 0.3rem;
-  }
-  header p {
-    font-size: 1.25rem;
-    color: #aaa;
-    font-weight: 300;
-  }
-
-  /* Sections */
-  section {
-    margin: 4rem 0;
-  }
-  section h2 {
-    font-size: 2rem;
-    color: #e0e0e0;
-    text-shadow: 0 0 6px #e0e0e0;
-    margin-bottom: 1rem;
-    border-bottom: 2px solid #e0e0e0;
-    padding-bottom: 0.3rem;
-  }
-
-  /* About Me */
-  .about {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    flex-wrap: wrap;
-  }
-  .about img {
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    border: 3px solid #e0e0e0;
-    box-shadow: 0 0 10px #e0e0e0;
-    object-fit: cover;
-  }
-  .about p {
-    flex: 1;
-    font-size: 1.1rem;
-    color: #ccc;
-  }
-
-  /* Skills */
-  .skills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-  .skill {
-    flex: 1 1 150px;
-    background: #1e1e1e;
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 0 8px #e0e0e044;
-    transition: box-shadow 0.3s ease;
-  }
-  .skill:hover {
-    box-shadow: 0 0 16px #e0e0e0;
-  }
-  .skill h3 {
-    margin-bottom: 0.5rem;
-    color: #e0e0e0;
-  }
-  .skill-bar {
-    background: #333;
-    border-radius: 10px;
-    overflow: hidden;
-    height: 12px;
-  }
-  .skill-level {
-    height: 12px;
-    background: #e0e0e0;
-    border-radius: 10px;
-    box-shadow: 0 0 8px #e0e0e0;
-    transition: width 1s ease;
-  }
-
-  /* Projects */
-  .projects {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-  }
-  .project-card {
-    background: #1e1e1e;
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 0 6px #e0e0e044;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  .project-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 0 20px #e0e0e0;
-  }
-  .project-card h3 {
-    color: #e0e0e0;
-    margin-bottom: 0.5rem;
-  }
-  .project-card p {
-    font-size: 0.95rem;
-    color: #ccc;
-  }
-  .project-card a {
-    display: inline-block;
-    margin-top: 0.7rem;
-    font-weight: 600;
-  }
-
-  /* Informatique Veille */
-  .veille-list {
-    list-style: none;
-    border-left: 3px solid #e0e0e0;
-    padding-left: 1rem;
-  }
-  .veille-item {
-    margin-bottom: 1.2rem;
-    padding-left: 1rem;
-    position: relative;
-    color: #ddd;
-  }
-  .veille-item::before {
-    content: '';
-    position: absolute;
-    left: -12px;
-    top: 10px;
-    width: 8px;
-    height: 8px;
-    background: #e0e0e0;
-    border-radius: 50%;
-    box-shadow: 0 0 8px #e0e0e0;
-  }
-  .veille-item time {
-    font-size: 0.85rem;
-    color: #666;
-    display: block; 
-    margin-bottom: 0.2rem;
-  }
-  .veille-item a {
-    font-weight: 600;
-  }
-
-  /* Contact */
-  .contact {
-    text-align: center;
-  }
-  .social-icons a {
-    margin: 0 0.8rem;
-    font-size: 1.5rem;
-    color: #e0e0e0;
-    transition: color 0.3s ease;
-  }
-  .social-icons a:hover {
-    color: #e0e0e0;
-  }
-
-  /* Responsive */
-  @media (max-width: 600px) {
-    .about {
+    /* Hero */
+    header {
+      min-height: 100vh;
+      display: flex;
       flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
     }
-  }
-</style>
+    header h1 {
+      font-size: 3.5rem;
+      color: #e0e0e0;
+      text-shadow: 0 0 12px rgba(224, 224, 224, 0.5);
+      margin-bottom: 0.3rem;
+    }
+    header p {
+      font-size: 1.25rem;
+      color: #aaa;
+      font-weight: 300;
+    }
 
-<link rel="website icon" type="png" href="./truc.png">
+    /* Sections Shared */
+    section { margin: 5rem 0; }
+    h2 {
+      font-size: 2rem;
+      color: #e0e0e0;
+      text-shadow: 0 0 6px #e0e0e0;
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid #e0e0e0;
+      padding-bottom: 0.3rem;
+    }
+
+    /* About Me */
+    .about { display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
+    .about img {
+      width: 160px; height: 160px; border-radius: 50%;
+      border: 3px solid #e0e0e0; box-shadow: 0 0 15px #e0e0e0; object-fit: cover;
+    }
+    .about p { flex: 1; font-size: 1.1rem; color: #ccc; }
+
+    /* Skills & Projects Grid */
+    .skills, .projects, .stages {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card, .skill, .project-card {
+      background: #1e1e1e;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(224, 224, 224, 0.1);
+      transition: all 0.3s ease;
+    }
+    .card:hover, .skill:hover, .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px rgba(224, 224, 224, 0.3);
+    }
+
+    /* Table de Synthèse */
+    .table-container { overflow-x: auto; margin-top: 1rem; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #1e1e1e;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #333;
+    }
+    th { background: #252525; color: #e0e0e0; }
+    tr:hover { background: #2a2a2a; }
+
+    /* Download Section */
+    .download-section {
+      text-align: center;
+      background: linear-gradient(145deg, #1e1e1e, #121212);
+      padding: 3rem;
+      border-radius: 12px;
+      border: 1px dashed #e0e0e0;
+    }
+    .btn-download {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: #e0e0e0;
+      color: #121212;
+      font-weight: bold;
+      border-radius: 30px;
+      margin-top: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .btn-download:hover {
+      background: #fff;
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #e0e0e0;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      header h1 { font-size: 2.5rem; }
+      .about { flex-direction: column; text-align: center; }
+    }
+  </style>
 </head>
 <body>
 
 <header>
-  <h1>Matéo CORMONT</h1>
+  <h1 id="glowLamp">Matéo CORMONT</h1>
   <p>Étudiant en développement informatique</p>
+  <a href="#download" class="btn-download" style="padding: 0.6rem 1.2rem; font-size: 0.9rem;">Mon CV</a>
 </header>
 
 <main class="container">
@@ -239,122 +158,113 @@
       <img src="https://via.placeholder.com/160" alt="Photo de profil" />
       <p>
         Je suis étudiant en développement informatique et passionné par les technologies liées au développement logiciel. 
-        Je m'intéresse particulièrement au développement web, à la programmation et à l'expérimentation de nouveaux outils 
-        et frameworks.  
-        <br><br>
-        À travers mes projets personnels et scolaires, j'explore différents langages et environnements afin d'améliorer 
-        mes compétences techniques et de mieux comprendre le fonctionnement des systèmes informatiques.
+        À travers mes projets personnels et scolaires, j'explore différents langages afin d'améliorer mes compétences.
       </p>
     </div>
   </section>
 
-  <section id="skills">
-    <h2>Compétences</h2>
-    <div class="skills">
-      <div class="skill">
-        <h3>JavaScript</h3>
-        <div class="skill-bar"><div class="skill-level" style="width: 85%;"></div></div>
+  <section id="stages">
+    <h2>Expériences en Stage</h2>
+    <div class="stages">
+      <div class="card">
+        <h3>Nom de l'Entreprise</h3>
+        <span style="color: #666;">Juin 2024 - Juillet 2024</span>
+        <p style="margin-top: 0.5rem;">Développement d'un module d'automatisation interne. Travail en équipe Agile et utilisation de Docker.</p>
       </div>
-      <div class="skill">
-        <h3>React</h3>
-        <div class="skill-bar"><div class="skill-level" style="width: 75%;"></div></div>
-      </div>
-      <div class="skill">
-        <h3>Node.js</h3>
-        <div class="skill-bar"><div class="skill-level" style="width: 70%;"></div></div>
-      </div>
-      <div class="skill">
-        <h3>Python</h3>
-        <div class="skill-bar"><div class="skill-level" style="width: 80%;"></div></div>
+      <div class="card">
+        <h3>Deuxième Stage</h3>
+        <span style="color: #666;">Janvier 2024</span>
+        <p style="margin-top: 0.5rem;">Maintenance corrective d'une application web existante sous PHP/Symfony.</p>
       </div>
     </div>
   </section>
 
   <section id="projects">
-    <h2>Projets</h2>
+    <h2>Projets Réalisés</h2>
     <div class="projects">
       <div class="project-card">
         <h3>Launcher de jeu</h3>
-        <p>
-          Développement d'un launcher permettant de lancer et gérer un jeu. 
-          Utilisation de React pour l'interface et intégration d'une authentification Microsoft via Azure.
-        </p>
-        <a href="#" target="_blank" rel="noopener">Voir le projet</a>
+        <p>Interface React et authentification Microsoft Azure.</p>
+        <a href="#">Détails →</a>
       </div>
-
       <div class="project-card">
-        <h3>Agent IA avec Mineflayer</h3>
-        <p>
-          Création d'un agent capable d'interagir dans un environnement 3D dans Minecraft. 
-          Le bot est développé en Node.js et utilise la librairie Mineflayer pour automatiser certaines actions.
-        </p>
-        <a href="#" target="_blank" rel="noopener">Voir le projet</a>
-      </div>
-
-      <div class="project-card">
-        <h3>Outil d'administration à distance</h3>
-        <p>
-          Développement d'un outil de contrôle et d'accès à distance écrit en Python, 
-          permettant de gérer certaines actions sur une machine distante.
-        </p>
-        <a href="#" target="_blank" rel="noopener">Voir le projet</a>
-      </div>
-
-      <div class="project-card">
-        <h3>API Node.js</h3>
-        <p>
-          Création d'une API REST en Node.js permettant la gestion d'utilisateurs 
-          avec un système d'authentification sécurisé.
-        </p>
-        <a href="#" target="_blank" rel="noopener">Voir le projet</a>
-      </div>
-
-      <div class="project-card">
-        <h3>Site portfolio</h3>
-        <p>
-          Développement d'un site web personnel permettant de présenter mes projets, 
-          mes compétences et mon parcours en informatique.
-        </p>
-        <a href="#" target="_blank" rel="noopener">Voir le projet</a>
+        <h3>Agent IA Mineflayer</h3>
+        <p>Bot Node.js pour automatisation Minecraft.</p>
+        <a href="#">Détails →</a>
       </div>
     </div>
   </section>
 
-  <section id="veille">
-    <h2>Veille informatique</h2>
-    <ul class="veille-list">
-      <li class="veille-item">
-        <time datetime="2025-09-20">20 septembre 2025</time>
-        <a href="https://techcrunch.com/2025/09/20/new-ai-innovation" target="_blank" rel="noopener">
-          Une nouvelle avancée en intelligence artificielle pourrait transformer le développement logiciel
-        </a>
-      </li>
-      <li class="veille-item">
-        <time datetime="2025-09-18">18 septembre 2025</time>
-        <a href="https://thenextweb.com/news/quantum-computing" target="_blank" rel="noopener">
-          Informatique quantique : les avancées et les perspectives pour les prochaines années
-        </a>
-      </li>
-      <li class="veille-item">
-        <time datetime="2025-09-15">15 septembre 2025</time>
-        <a href="https://wired.com/story/cybersecurity-future" target="_blank" rel="noopener">
-          Cybersécurité : tendances et bonnes pratiques pour les années à venir
-        </a>
-      </li>
-    </ul>
+  <section id="synthese">
+    <h2>Tableau de Synthèse</h2>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Compétences</th>
+            <th>Projets associés</th>
+            <th>Niveau</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Frontend (React)</td>
+            <td>Launcher, Portfolio</td>
+            <td>Avancé</td>
+          </tr>
+          <tr>
+            <td>Backend (Node.js/Python)</td>
+            <td>API REST, Agent IA, RAT</td>
+            <td>Intermédiaire</td>
+          </tr>
+          <tr>
+            <td>Cybersécurité</td>
+            <td>Outil d'administration</td>
+            <td>Bases</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </section>
 
-  <section id="contact">
+  <section id="etudes">
+    <h2>Poursuite d'études</h2>
+    <div class="card" style="border-left: 4px solid #e0e0e0;">
+      <h3>Objectif : Ingénieur Informatique</h3>
+      <p>Après l'obtention de mon diplôme actuel, je souhaite m'orienter vers une <strong>Licence Pro</strong> ou une <strong>École d'Ingénieur</strong> en alternance, avec une spécialisation en architecture logicielle ou en cybersécurité.</p>
+    </div>
+  </section>
+
+  <section id="download" class="download-section">
+    <h2>Mon Curriculum Vitae</h2>
+    <p>Vous souhaitez en savoir plus sur mon parcours ? Téléchargez mon CV complet au format PDF.</p>
+    <a href="./mon-cv.pdf" download class="btn-download">⬇️ Télécharger le CV</a>
+  </section>
+
+  <section id="contact" style="text-align: center;">
     <h2>Contact</h2>
-    <p>N'hésitez pas à me contacter par email ou à me retrouver sur mes réseaux professionnels.</p>
     <div class="social-icons">
-      <a href="mailto:mateo.cormont@hotmail.com" aria-label="Email">✉️</a>
-      <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener" aria-label="LinkedIn">🔗</a>
-      <a href="https://github.com/Maj-Mat-ctrl" target="_blank" rel="noopener" aria-label="GitHub">🐙</a>
+      <a href="mailto:mateo.cormont@hotmail.com">Email</a> | 
+      <a href="https://github.com/Maj-Mat-ctrl">GitHub</a> | 
+      <a href="#">LinkedIn</a>
     </div>
   </section>
 
 </main>
+
+<script>
+  // Animation au chargement
+  window.addEventListener('DOMContentLoaded', () => {
+    const lamp = document.getElementById('glowLamp');
+    if(lamp) {
+      lamp.style.opacity = '0';
+      setTimeout(() => {
+        lamp.style.transition = 'opacity 1.5s ease';
+        lamp.style.opacity = '1';
+      }, 300);
+    }
+  });
+</script>
 
 </body>
 </html>
