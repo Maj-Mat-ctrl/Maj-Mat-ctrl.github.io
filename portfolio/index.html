@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Matéo CORMONT | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
     /* Reset and basics */
@@ -12,18 +13,19 @@
       margin: 0; padding: 0; box-sizing: border-box;
       font-family: 'Poppins', sans-serif;
     }
-
     body {
       background: #121212;
       color: #eee;
       line-height: 1.6;
       scroll-behavior: smooth;
     }
-
     a {
       color: #e0e0e0;
       text-decoration: none;
-      transition: all 0.3s ease;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #ffffff;
     }
 
     /* Container */
@@ -44,9 +46,9 @@
       text-align: center;
     }
     header h1 {
-      font-size: 3.5rem;
+      font-size: 3rem;
       color: #e0e0e0;
-      text-shadow: 0 0 12px rgba(224, 224, 224, 0.5);
+      text-shadow: 0 0 8px #e0e0e0;
       margin-bottom: 0.3rem;
     }
     header p {
@@ -55,43 +57,241 @@
       font-weight: 300;
     }
 
-    /* Sections Shared */
-    section { margin: 5rem 0; }
-    h2 {
+    /* Sections */
+    section {
+      margin: 4rem 0;
+    }
+    section h2 {
       font-size: 2rem;
       color: #e0e0e0;
       text-shadow: 0 0 6px #e0e0e0;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
       border-bottom: 2px solid #e0e0e0;
       padding-bottom: 0.3rem;
     }
 
     /* About Me */
-    .about { display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
-    .about img {
-      width: 160px; height: 160px; border-radius: 50%;
-      border: 3px solid #e0e0e0; box-shadow: 0 0 15px #e0e0e0; object-fit: cover;
+    .about {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
     }
-    .about p { flex: 1; font-size: 1.1rem; color: #ccc; }
+    .about img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 3px solid #e0e0e0;
+      box-shadow: 0 0 10px #e0e0e0;
+      object-fit: cover;
+    }
+    .about p {
+      flex: 1;
+      font-size: 1.1rem;
+      color: #ccc;
+    }
 
-    /* Skills & Projects Grid */
-    .skills, .projects, .stages {
+    /* Skills */
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .skill {
+      flex: 1 1 150px;
+      background: #1e1e1e;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 0 8px #e0e0e044;
+      transition: box-shadow 0.3s ease;
+    }
+    .skill:hover {
+      box-shadow: 0 0 16px #e0e0e0;
+    }
+    .skill h3 {
+      margin-bottom: 0.5rem;
+      color: #e0e0e0;
+    }
+    .skill-bar {
+      background: #333;
+      border-radius: 10px;
+      overflow: hidden;
+      height: 12px;
+    }
+    .skill-level {
+      height: 12px;
+      background: #e0e0e0;
+      border-radius: 10px;
+      box-shadow: 0 0 8px #e0e0e0;
+      transition: width 1s ease;
+    }
+
+    /* Parcours scolaire */
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+      border-left: 3px solid #e0e0e0;
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2rem;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -2.45rem;
+      top: 6px;
+      width: 12px;
+      height: 12px;
+      background: #e0e0e0;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #e0e0e0;
+    }
+    .timeline-item h3 {
+      color: #e0e0e0;
+      font-size: 1.1rem;
+    }
+    .timeline-item span {
+      font-size: 0.85rem;
+      color: #666;
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+    .timeline-item p {
+      color: #ccc;
+      font-size: 0.95rem;
+    }
+
+    /* Entreprises / stages */
+    .stages {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1.5rem;
     }
-
-    .card, .skill, .project-card {
+    .card {
       background: #1e1e1e;
       padding: 1.5rem;
       border-radius: 8px;
       box-shadow: 0 0 8px rgba(224, 224, 224, 0.1);
       transition: all 0.3s ease;
     }
-    .card:hover, .skill:hover, .project-card:hover {
+    .card:hover {
       transform: translateY(-5px);
       box-shadow: 0 0 20px rgba(224, 224, 224, 0.3);
     }
+    .card h3 { color: #e0e0e0; margin-bottom: 0.2rem; }
+    .card .date { font-size: 0.85rem; color: #666; display: block; margin-bottom: 0.5rem; }
+    .card .company-desc { font-size: 0.9rem; color: #888; font-style: italic; margin-bottom: 0.5rem; }
+    .card .role { font-weight: 600; color: #ccc; margin-bottom: 0.4rem; font-size: 0.95rem; }
+    .card ul {
+      padding-left: 1.2rem;
+      color: #ccc;
+      font-size: 0.9rem;
+    }
+    .card ul li { margin-bottom: 0.2rem; }
+
+    /* Projects */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .project-card {
+      background: #1e1e1e;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 0 6px #e0e0e044;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 0 20px #e0e0e0;
+    }
+    .project-card h3 {
+      color: #e0e0e0;
+      margin-bottom: 0.5rem;
+    }
+    .project-card p {
+      font-size: 0.95rem;
+      color: #ccc;
+    }
+    .project-card .tag {
+      display: inline-block;
+      background: #2a2a2a;
+      color: #aaa;
+      font-size: 0.75rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      margin: 0.3rem 0.2rem 0 0;
+    }
+    .project-card .btn-detail {
+      display: inline-block;
+      margin-top: 0.7rem;
+      font-weight: 600;
+      color: #e0e0e0;
+    }
+
+    /* Modal */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+    }
+    .modal-overlay.active {
+      display: flex;
+    }
+    .modal {
+      background: #1e1e1e;
+      border-radius: 10px;
+      padding: 2rem;
+      max-width: 600px;
+      width: 100%;
+      position: relative;
+      box-shadow: 0 0 30px rgba(224,224,224,0.2);
+      animation: fadeInModal 0.3s ease;
+    }
+    @keyframes fadeInModal {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .modal h3 { color: #e0e0e0; font-size: 1.4rem; margin-bottom: 0.5rem; }
+    .modal .modal-tags { margin-bottom: 1rem; }
+    .modal .tag {
+      display: inline-block;
+      background: #2a2a2a;
+      color: #aaa;
+      font-size: 0.75rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      margin: 0.2rem 0.2rem 0 0;
+    }
+    .modal p { color: #ccc; font-size: 0.95rem; line-height: 1.7; }
+    .modal .modal-links { margin-top: 1rem; }
+    .modal .modal-links a {
+      display: inline-block;
+      margin-right: 1rem;
+      font-weight: 600;
+      color: #e0e0e0;
+      border-bottom: 1px solid #e0e0e066;
+    }
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      color: #aaa;
+      font-size: 1.4rem;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .modal-close:hover { color: #fff; }
 
     /* Table de Synthèse */
     .table-container { overflow-x: auto; margin-top: 1rem; }
@@ -128,17 +328,66 @@
       margin-top: 1.5rem;
       text-transform: uppercase;
       letter-spacing: 1px;
+      transition: all 0.3s ease;
     }
     .btn-download:hover {
       background: #fff;
       transform: scale(1.05);
       box-shadow: 0 0 20px #e0e0e0;
+      color: #000;
+    }
+
+    /* Contact */
+    .contact {
+      text-align: center;
+    }
+    .social-icons a {
+      margin: 0 0.8rem;
+      font-size: 1.1rem;
+      color: #e0e0e0;
+      transition: color 0.3s ease;
+    }
+    .social-icons a:hover {
+      color: #ffffff;
+    }
+
+    /* Mentions légales */
+    .mentions {
+      border-top: 1px solid #2a2a2a;
+      padding-top: 2rem;
+      margin-top: 4rem;
+      font-size: 0.85rem;
+      color: #555;
+      text-align: center;
+      line-height: 1.8;
+    }
+    .mentions strong { color: #777; }
+
+    /* Poursuite d'études */
+    .etudes-card {
+      border-left: 4px solid #e0e0e0;
+    }
+    .etudes-card h3 { color: #e0e0e0; margin-bottom: 0.5rem; }
+
+    /* Flicker animation */
+    @keyframes flickerGlow {
+      0%   { opacity: 0; text-shadow: none; }
+      10%  { opacity: 1; text-shadow: 0 0 20px #fff, 0 0 40px #e0e0e0; }
+      15%  { opacity: 0.3; }
+      20%  { opacity: 1; text-shadow: 0 0 15px #e0e0e0; }
+      25%  { opacity: 0.5; }
+      30%  { opacity: 1; text-shadow: 0 0 10px #e0e0e0; }
+      60%  { opacity: 1; text-shadow: 0 0 8px #e0e0e0; }
+      100% { opacity: 1; text-shadow: 0 0 8px #e0e0e0; }
     }
 
     /* Responsive */
     @media (max-width: 600px) {
+      .about {
+        flex-direction: column;
+        text-align: center;
+      }
       header h1 { font-size: 2.5rem; }
-      .about { flex-direction: column; text-align: center; }
     }
   </style>
 </head>
@@ -146,63 +395,172 @@
 
 <header>
   <h1 id="glowLamp">Matéo CORMONT</h1>
-  <p>Étudiant en développement informatique</p>
-  <a href="#download" class="btn-download" style="padding: 0.6rem 1.2rem; font-size: 0.9rem;">Mon CV</a>
+  <p>Étudiant en développement informatique · BTS SIO SLAM</p>
+  <a href="#download" class="btn-download" style="padding: 0.6rem 1.2rem; font-size: 0.9rem; margin-top: 1.5rem;">Mon CV</a>
 </header>
 
 <main class="container">
 
+  <!-- À propos -->
   <section id="about">
     <h2>À propos de moi</h2>
     <div class="about">
-      <img src="https://via.placeholder.com/160" alt="Photo de profil" />
+      <!-- Remplace "truc.png" par le nom réel de ta photo si différent -->
+      <img src="truc.png" alt="Photo de profil Matéo CORMONT" />
       <p>
-        Je suis étudiant en développement informatique et passionné par les technologies liées au développement logiciel. 
-        À travers mes projets personnels et scolaires, j'explore différents langages afin d'améliorer mes compétences.
+        Je suis étudiant en BTS SIO option SLAM et passionné par le développement logiciel.
+        À travers mes projets personnels et scolaires, j'explore différents langages et frameworks
+        afin d'améliorer mes compétences et de concrétiser mes idées. Mon objectif est de poursuivre
+        vers une ingénierie en architecture logicielle ou en cybersécurité.
       </p>
     </div>
   </section>
 
-  <section id="stages">
-    <h2>Expériences en Stage</h2>
-    <div class="stages">
-      <div class="card">
-        <h3>Nom de l'Entreprise</h3>
-        <span style="color: #666;">Juin 2024 - Juillet 2024</span>
-        <p style="margin-top: 0.5rem;">Développement d'un module d'automatisation interne. Travail en équipe Agile et utilisation de Docker.</p>
+  <!-- Parcours scolaire -->
+  <section id="parcours">
+    <h2>Parcours Scolaire</h2>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <h3>Baccalauréat STI2D – Option SIN</h3>
+        <span>2020 – 2022 · Lycée [Nom du lycée], [Ville]</span>
+        <p>
+          Bac technologique axé sur les sciences et technologies de l'industrie et du développement durable,
+          avec spécialisation en Systèmes d'Information et Numérique. C'est ici que j'ai découvert la programmation
+          et que j'ai décidé de m'orienter vers l'informatique.
+        </p>
       </div>
-      <div class="card">
-        <h3>Deuxième Stage</h3>
-        <span style="color: #666;">Janvier 2024</span>
-        <p style="margin-top: 0.5rem;">Maintenance corrective d'une application web existante sous PHP/Symfony.</p>
+
+      <div class="timeline-item">
+        <h3>BTS SIO – Option SLAM</h3>
+        <span>2022 – Aujourd'hui · [Nom du lycée / établissement], [Ville]</span>
+        <p>
+          Formation en Solutions Logicielles et Applications Métiers. Je développe des compétences en développement
+          web, programmation orientée objet, gestion de bases de données et cybersécurité. Ce BTS m'a confirmé
+          ma passion pour le développement et m'a donné les bases pour intégrer une école d'ingénieur.
+        </p>
       </div>
+
     </div>
   </section>
 
+  <!-- Expériences en entreprise -->
+  <section id="stages">
+    <h2>Expériences en Entreprise</h2>
+    <div class="stages">
+
+      <div class="card">
+        <h3>Nom de l'entreprise 1</h3>
+        <span class="date">Juin 2024 – Juillet 2024</span>
+        <p class="company-desc">Entreprise spécialisée dans [domaine, ex : solutions ERP pour PME].</p>
+        <p class="role">📌 Poste : Développeur stagiaire</p>
+        <ul>
+          <li>Développement d'un module d'automatisation interne</li>
+          <li>Travail en équipe Agile (sprints, daily stand-ups)</li>
+          <li>Utilisation de Docker pour la conteneurisation</li>
+          <li>Rédaction de documentation technique</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Nom de l'entreprise 2</h3>
+        <span class="date">Janvier 2024 – Février 2024</span>
+        <p class="company-desc">Agence web proposant des solutions sur mesure pour [type de clients].</p>
+        <p class="role">📌 Poste : Développeur web stagiaire</p>
+        <ul>
+          <li>Maintenance corrective d'une application web sous PHP / Symfony</li>
+          <li>Correction de bugs et optimisation des performances</li>
+          <li>Tests unitaires et fonctionnels</li>
+          <li>Participation aux réunions client</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Projets -->
   <section id="projects">
     <h2>Projets Réalisés</h2>
+    <p style="color:#888; margin-bottom:1rem; font-size:0.9rem;">Cliquez sur une carte pour voir les détails.</p>
     <div class="projects">
-      <div class="project-card">
-        <h3>Launcher de jeu</h3>
-        <p>Interface React et authentification Microsoft Azure.</p>
-        <a href="#">Détails →</a>
+
+      <div class="project-card" onclick="openModal('launcher')">
+        <h3>🎮 Launcher de jeu</h3>
+        <p>Interface React avec authentification Microsoft Azure.</p>
+        <div>
+          <span class="tag">React</span>
+          <span class="tag">Azure</span>
+          <span class="tag">Node.js</span>
+        </div>
+        <span class="btn-detail">Voir les détails →</span>
       </div>
-      <div class="project-card">
-        <h3>Agent IA Mineflayer</h3>
+
+      <div class="project-card" onclick="openModal('mineflayer')">
+        <h3>🤖 Agent IA Mineflayer</h3>
         <p>Bot Node.js pour automatisation Minecraft.</p>
-        <a href="#">Détails →</a>
+        <div>
+          <span class="tag">Node.js</span>
+          <span class="tag">IA</span>
+          <span class="tag">Minecraft</span>
+        </div>
+        <span class="btn-detail">Voir les détails →</span>
       </div>
+
+      <div class="project-card" onclick="openModal('portfolio')">
+        <h3>🌐 Portfolio</h3>
+        <p>Ce site portfolio réalisé en HTML / CSS / JS vanilla.</p>
+        <div>
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JavaScript</span>
+        </div>
+        <span class="btn-detail">Voir les détails →</span>
+      </div>
+
+      <div class="project-card" onclick="openModal('admintools')">
+        <h3>🛡️ Outil d'administration à distance</h3>
+        <p>Script de gestion et monitoring réseau.</p>
+        <div>
+          <span class="tag">Python</span>
+          <span class="tag">Réseau</span>
+          <span class="tag">Sécurité</span>
+        </div>
+        <span class="btn-detail">Voir les détails →</span>
+      </div>
+
+      <div class="project-card" onclick="openModal('apirest')">
+        <h3>🔌 API REST Node.js</h3>
+        <p>API de gestion de données avec authentification JWT.</p>
+        <div>
+          <span class="tag">Node.js</span>
+          <span class="tag">Express</span>
+          <span class="tag">JWT</span>
+        </div>
+        <span class="btn-detail">Voir les détails →</span>
+      </div>
+
     </div>
   </section>
 
+  <!-- Modal -->
+  <div class="modal-overlay" id="modal-overlay" onclick="closeModalOutside(event)">
+    <div class="modal" id="modal-content">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <h3 id="modal-title"></h3>
+      <div class="modal-tags" id="modal-tags"></div>
+      <p id="modal-desc"></p>
+      <div class="modal-links" id="modal-links"></div>
+    </div>
+  </div>
+
+  <!-- Tableau de Synthèse -->
   <section id="synthese">
-    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem; border-bottom: 2px solid #e0e0e0; padding-bottom: 0.3rem;">
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem; border-bottom: 2px solid #e0e0e0; padding-bottom: 0.3rem;">
       <h2 style="border-bottom: none; margin-bottom: 0;">Tableau de Synthèse</h2>
       <a href="./tableau-synthese-mateo.xlsx" download class="btn-download" style="margin-top: 0; padding: 0.5rem 1rem; font-size: 0.8rem;">
         📊 Télécharger l'Excel (.xlsx)
       </a>
     </div>
-
     <div class="table-container">
       <table>
         <thead>
@@ -214,12 +572,12 @@
         </thead>
         <tbody>
           <tr>
-            <td><strong>Développement Web (React/JS)</strong></td>
+            <td><strong>Développement Web (React / JS)</strong></td>
             <td>Launcher de jeu, Portfolio</td>
             <td>Scolaire / Perso</td>
           </tr>
           <tr>
-            <td><strong>Scripts & Automatisation (Node.js/Python)</strong></td>
+            <td><strong>Scripts & Automatisation (Node.js / Python)</strong></td>
             <td>Agent IA Mineflayer, Outil d'admin</td>
             <td>Personnel / Stage</td>
           </tr>
@@ -241,42 +599,135 @@
     </p>
   </section>
 
+  <!-- Poursuite d'études -->
   <section id="etudes">
-    <h2>Poursuite d'études</h2>
-    <div class="card" style="border-left: 4px solid #e0e0e0;">
-      <h3>Objectif : Ingénieur Informatique</h3>
-      <p>Après l'obtention de mon diplôme actuel, je souhaite m'orienter vers une <strong>Licence Pro</strong> ou une <strong>École d'Ingénieur</strong> en alternance, avec une spécialisation en architecture logicielle ou en cybersécurité.</p>
+    <h2>Poursuite d'Études</h2>
+    <div class="card etudes-card">
+      <h3>🎯 Objectif : Ingénieur Informatique</h3>
+      <p>
+        Après l'obtention de mon BTS SIO SLAM, je souhaite intégrer une <strong>Licence Professionnelle</strong>
+        ou une <strong>École d'Ingénieur</strong> en alternance. Je m'oriente vers une spécialisation en
+        <strong>architecture logicielle</strong> ou en <strong>cybersécurité</strong>, deux domaines qui me
+        passionnent et dans lesquels j'ai déjà commencé à me former de manière autonome.
+        L'alternance me permettrait de continuer à développer mon expérience professionnelle tout
+        en validant un diplôme de niveau Bac+3 ou Bac+5.
+      </p>
     </div>
   </section>
 
+  <!-- CV -->
   <section id="download" class="download-section">
     <h2>Mon Curriculum Vitae</h2>
     <p>Vous souhaitez en savoir plus sur mon parcours ? Téléchargez mon CV complet au format PDF.</p>
     <a href="./mon-cv.pdf" download class="btn-download">⬇️ Télécharger le CV</a>
   </section>
 
-  <section id="contact" style="text-align: center;">
+  <!-- Contact -->
+  <section id="contact" class="contact">
     <h2>Contact</h2>
     <div class="social-icons">
-      <a href="mailto:mateo.cormont@hotmail.com">Email</a> | 
-      <a href="https://github.com/Maj-Mat-ctrl">GitHub</a> | 
-      <a href="#">LinkedIn</a>
+      <a href="mailto:mateo.cormont@hotmail.com">✉️ Email</a> |
+      <a href="https://github.com/Maj-Mat-ctrl" target="_blank" rel="noopener">💻 GitHub</a> |
+      <a href="#" target="_blank" rel="noopener">🔗 LinkedIn</a>
     </div>
   </section>
+
+  <!-- Mentions légales -->
+  <footer class="mentions">
+    <strong>Mentions légales</strong><br>
+    Ce site est un portfolio personnel à but non commercial.<br>
+    Il <strong>ne collecte aucune donnée personnelle</strong> et n'utilise aucun cookie de traçage.<br>
+    Hébergé gratuitement par <strong>GitHub Pages</strong> – <a href="https://pages.github.com" target="_blank" rel="noopener" style="color:#777;">pages.github.com</a><br>
+    Toute reproduction partielle ou totale du contenu est soumise à l'accord de l'auteur.<br>
+    <span style="color:#444;">© 2024 Matéo CORMONT</span>
+  </footer>
 
 </main>
 
 <script>
-  // Animation au chargement
+  // Flicker animation au chargement
   window.addEventListener('DOMContentLoaded', () => {
     const lamp = document.getElementById('glowLamp');
-    if(lamp) {
-      lamp.style.opacity = '0';
-      setTimeout(() => {
-        lamp.style.transition = 'opacity 1.5s ease';
-        lamp.style.opacity = '1';
-      }, 300);
+    // Run flicker animation
+    lamp.style.animation = 'flickerGlow 2.5s ease-in-out forwards';
+  });
+
+  // Données des projets
+  const projects = {
+    launcher: {
+      title: '🎮 Launcher de jeu',
+      tags: ['React', 'Node.js', 'Microsoft Azure', 'Electron'],
+      desc: `Interface de lancement de jeu développée avec React et Electron. L'application permet 
+      à l'utilisateur de s'authentifier via son compte Microsoft Azure, de visualiser ses jeux installés 
+      et d'en lancer l'exécution directement. Gestion des mises à jour automatiques et interface 
+      personnalisable. Ce projet m'a permis d'approfondir mon expérience avec React et les API OAuth2 de Microsoft.`,
+      links: [{ label: 'GitHub →', href: 'https://github.com/Maj-Mat-ctrl' }]
+    },
+    mineflayer: {
+      title: '🤖 Agent IA Mineflayer',
+      tags: ['Node.js', 'Mineflayer', 'Intelligence Artificielle', 'Minecraft'],
+      desc: `Bot Minecraft développé avec la bibliothèque Mineflayer (Node.js). L'agent est capable 
+      d'automatiser des tâches répétitives dans le jeu : collecte de ressources, construction, 
+      navigation intelligente dans l'environnement et réponse aux événements du jeu. 
+      Intégration d'une logique de décision basique inspirée de l'IA comportementale. 
+      Projet réalisé dans un cadre personnel pour explorer les possibilités d'automatisation.`,
+      links: [{ label: 'GitHub →', href: 'https://github.com/Maj-Mat-ctrl' }]
+    },
+    portfolio: {
+      title: '🌐 Portfolio Personnel',
+      tags: ['HTML', 'CSS', 'JavaScript', 'GitHub Pages'],
+      desc: `Ce portfolio a été conçu et développé entièrement en HTML, CSS et JavaScript vanilla, 
+      sans framework. Il présente mon parcours, mes compétences, mes expériences en entreprise 
+      et mes projets réalisés. Responsive, hébergé sur GitHub Pages, il reflète mes connaissances 
+      en intégration web et en design d'interface. Le code source est disponible sur mon GitHub.`,
+      links: [
+        { label: 'GitHub →', href: 'https://github.com/Maj-Mat-ctrl' },
+        { label: 'Voir le site →', href: '#' }
+      ]
+    },
+    admintools: {
+      title: '🛡️ Outil d\'administration à distance',
+      tags: ['Python', 'Réseau', 'Cybersécurité', 'SSH'],
+      desc: `Script Python permettant la gestion et le monitoring de machines à distance via SSH. 
+      Fonctionnalités : visualisation de l'état des services, redémarrage de processus, consultation 
+      des logs système et envoi d'alertes. Développé dans une optique de veille en cybersécurité 
+      et d'administration système. Ce projet m'a initié aux bonnes pratiques de sécurisation des accès.`,
+      links: [{ label: 'GitHub →', href: 'https://github.com/Maj-Mat-ctrl' }]
+    },
+    apirest: {
+      title: '🔌 API REST Node.js',
+      tags: ['Node.js', 'Express', 'JWT', 'MySQL'],
+      desc: `API REST développée avec Node.js et Express, intégrant un système d'authentification 
+      par token JWT. Permet la gestion CRUD de ressources (utilisateurs, entités métier) 
+      avec validation des données, gestion des erreurs et documentation des endpoints. 
+      Base de données MySQL. Projet réalisé dans le cadre de cours, étendu personnellement 
+      pour approfondir la sécurisation des APIs.`,
+      links: [{ label: 'GitHub →', href: 'https://github.com/Maj-Mat-ctrl' }]
     }
+  };
+
+  function openModal(key) {
+    const project = projects[key];
+    document.getElementById('modal-title').textContent = project.title;
+    document.getElementById('modal-tags').innerHTML = project.tags.map(t => `<span class="tag">${t}</span>`).join('');
+    document.getElementById('modal-desc').textContent = project.desc;
+    document.getElementById('modal-links').innerHTML = project.links.map(l => `<a href="${l.href}" target="_blank" rel="noopener">${l.label}</a>`).join('');
+    document.getElementById('modal-overlay').classList.add('active');
+  }
+
+  function closeModal() {
+    document.getElementById('modal-overlay').classList.remove('active');
+  }
+
+  function closeModalOutside(event) {
+    if (event.target === document.getElementById('modal-overlay')) {
+      closeModal();
+    }
+  }
+
+  // Fermer avec Echap
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeModal();
   });
 </script>
 
