@@ -1,1 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bonne Fête des Mères</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #fdf6f0; font-family: 'Lato', sans-serif; color: #4a2c2a; min-height: 100vh; overflow-x: hidden; }
+  .petals-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; overflow: hidden; }
+  .petal { position: absolute; opacity: 0; animation: fall linear infinite; }
+  @keyframes fall {
+    0%   { transform: translateY(-60px) rotate(0deg); opacity: 0; }
+    10%  { opacity: 0.6; }
+    90%  { opacity: 0.4; }
+    100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+  }
+  .hero { position: relative; z-index: 1; text-align: center; padding: 80px 20px 60px; }
+  .tag { display: inline-block; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: #c0796a; border: 1px solid #e8b4a0; padding: 6px 20px; border-radius: 20px; margin-bottom: 32px; }
+  h1 { font-family: 'Playfair Display', serif; font-size: clamp(42px, 8vw, 80px); font-weight: 400; line-height: 1.1; color: #3a1f1e; margin-bottom: 16px; }
+  h1 em { font-style: italic; color: #c0796a; }
+  .subtitle { font-size: 16px; font-weight: 300; color: #8a5c56; letter-spacing: 1px; max-width: 420px; margin: 0 auto 48px; line-height: 1.8; }
+  .bouquet-wrap { position: relative; z-index: 1; display: flex; justify-content: center; margin: 0 auto 60px; }
+  .bouquet-wrap svg { filter: drop-shadow(0 12px 32px rgba(192,121,106,0.18)); animation: float 4s ease-in-out infinite; }
+  @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+  .message-section { position: relative; z-index: 1; max-width: 640px; margin: 0 auto 80px; padding: 0 24px; }
+  .card { background: #fff; border-radius: 24px; padding: 48px 44px; box-shadow: 0 4px 40px rgba(192,121,106,0.12); text-align: center; position: relative; overflow: hidden; }
+  .card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #f4c2b0, #e8a090, #d4786a, #e8a090, #f4c2b0); }
+  .quote-mark { font-family: 'Playfair Display', serif; font-size: 80px; color: #f4c2b0; line-height: 0.5; margin-bottom: 20px; display: block; }
+  .card p { font-family: 'Playfair Display', serif; font-style: italic; font-size: 20px; line-height: 1.8; color: #5a3330; margin-bottom: 24px; }
+  .author { font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: #c0796a; }
+  .moments { position: relative; z-index: 1; max-width: 780px; margin: 0 auto 80px; padding: 0 24px; }
+  .moments-title { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 400; text-align: center; margin-bottom: 36px; color: #3a1f1e; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .moment { background: #fff; border-radius: 18px; padding: 28px 20px; text-align: center; box-shadow: 0 2px 20px rgba(192,121,106,0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: default; }
+  .moment:hover { transform: translateY(-6px); box-shadow: 0 12px 36px rgba(192,121,106,0.18); }
+  .moment .icon { font-size: 36px; margin-bottom: 12px; display: block; }
+  .moment h3 { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 400; color: #3a1f1e; margin-bottom: 8px; }
+  .moment p { font-size: 13px; color: #9a6a66; line-height: 1.6; font-weight: 300; }
+  .footer { position: relative; z-index: 1; text-align: center; padding: 40px 20px 60px; border-top: 1px solid #f0d8d0; }
+  .heart-banner { font-family: 'Playfair Display', serif; font-size: 18px; color: #c0796a; margin-bottom: 12px; }
+  .footer-small { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: #c4a09c; }
+  @media (max-width: 580px) { .grid { grid-template-columns: 1fr 1fr; } .card { padding: 36px 24px; } }
+</style>
+</head>
+<body>
 
+<div class="petals-bg" id="petals"></div>
+
+<section class="hero">
+  <div class="tag">✦ 31 mai 2026 ✦</div>
+  <h1>Bonne fête,<br><em>Maman</em></h1>
+  <p class="subtitle">Pour celle qui illumine chaque journée, qui aime sans condition et donne tout sans compter.</p>
+</section>
+
+<div class="bouquet-wrap">
+  <svg width="220" height="260" viewBox="0 0 220 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M110 200 Q95 175 88 155" stroke="#7a9e7e" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+    <path d="M110 200 Q110 170 108 148" stroke="#7a9e7e" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+    <path d="M110 200 Q125 172 130 152" stroke="#7a9e7e" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+    <path d="M110 200 Q80 165 70 145" stroke="#7a9e7e" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <path d="M110 200 Q140 165 148 145" stroke="#7a9e7e" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <ellipse cx="92" cy="168" rx="10" ry="5" fill="#7a9e7e" opacity="0.7" transform="rotate(-30 92 168)"/>
+    <ellipse cx="127" cy="170" rx="10" ry="5" fill="#7a9e7e" opacity="0.7" transform="rotate(30 127 170)"/>
+    <path d="M88 205 Q110 215 132 205" stroke="#e8a090" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <path d="M95 210 Q110 222 125 210" stroke="#e8a090" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <circle cx="108" cy="132" r="8" fill="#f4a0b0"/>
+    <ellipse cx="108" cy="118" rx="8" ry="11" fill="#f9c0cc" opacity="0.9"/>
+    <ellipse cx="120" cy="126" rx="8" ry="11" fill="#f9c0cc" opacity="0.9" transform="rotate(72 120 126)"/>
+    <ellipse cx="116" cy="142" rx="8" ry="11" fill="#f9c0cc" opacity="0.9" transform="rotate(144 116 142)"/>
+    <ellipse cx="100" cy="142" rx="8" ry="11" fill="#f9c0cc" opacity="0.9" transform="rotate(216 100 142)"/>
+    <ellipse cx="96" cy="126" rx="8" ry="11" fill="#f9c0cc" opacity="0.9" transform="rotate(288 96 126)"/>
+    <circle cx="108" cy="132" r="6" fill="#e8758a"/>
+    <circle cx="75" cy="138" r="6" fill="#f4b896"/>
+    <ellipse cx="75" cy="126" rx="6" ry="9" fill="#f9cebc" opacity="0.9"/>
+    <ellipse cx="85" cy="133" rx="6" ry="9" fill="#f9cebc" opacity="0.9" transform="rotate(72 85 133)"/>
+    <ellipse cx="81" cy="147" rx="6" ry="9" fill="#f9cebc" opacity="0.9" transform="rotate(144 81 147)"/>
+    <ellipse cx="69" cy="147" rx="6" ry="9" fill="#f9cebc" opacity="0.9" transform="rotate(216 69 147)"/>
+    <ellipse cx="65" cy="133" rx="6" ry="9" fill="#f9cebc" opacity="0.9" transform="rotate(288 65 133)"/>
+    <circle cx="75" cy="138" r="5" fill="#e8906a"/>
+    <circle cx="143" cy="138" r="6" fill="#c4a0d8"/>
+    <ellipse cx="143" cy="126" rx="6" ry="9" fill="#dcc0ec" opacity="0.9"/>
+    <ellipse cx="153" cy="133" rx="6" ry="9" fill="#dcc0ec" opacity="0.9" transform="rotate(72 153 133)"/>
+    <ellipse cx="149" cy="147" rx="6" ry="9" fill="#dcc0ec" opacity="0.9" transform="rotate(144 149 147)"/>
+    <ellipse cx="137" cy="147" rx="6" ry="9" fill="#dcc0ec" opacity="0.9" transform="rotate(216 137 147)"/>
+    <ellipse cx="133" cy="133" rx="6" ry="9" fill="#dcc0ec" opacity="0.9" transform="rotate(288 133 133)"/>
+    <circle cx="143" cy="138" r="5" fill="#9a70b8"/>
+    <circle cx="90" cy="115" r="7" fill="#f9e0a0"/>
+    <circle cx="126" cy="112" r="7" fill="#f9e0a0"/>
+    <circle cx="90" cy="115" r="4" fill="#e8c060"/>
+    <circle cx="126" cy="112" r="4" fill="#e8c060"/>
+    <circle cx="62" cy="125" r="4" fill="#f9c0cc" opacity="0.6"/>
+    <circle cx="157" cy="128" r="3.5" fill="#dcc0ec" opacity="0.6"/>
+    <circle cx="108" cy="105" r="3" fill="#f9cebc" opacity="0.6"/>
+  </svg>
+</div>
+
+<section class="message-section">
+  <div class="card">
+    <span class="quote-mark">"</span>
+    <p>Une maman, c'est une main qui tient la tienne, une voix qui calme ta peur, et un amour qui ne connaît aucune limite ni aucune fin.</p>
+    <span class="author">✦ La meilleure maman au monde ✦</span>
+  </div>
+</section>
+
+<section class="moments">
+  <h2 class="moments-title">Ce qu'elle fait pour nous</h2>
+  <div class="grid">
+    <div class="moment"><span class="icon">🌅</span><h3>Chaque matin</h3><p>Elle commence sa journée avant tout le monde, pour que la nôtre soit parfaite.</p></div>
+    <div class="moment"><span class="icon">🤗</span><h3>Ses bras</h3><p>Un refuge contre les tempêtes, une chaleur qu'on ne retrouve nulle part ailleurs.</p></div>
+    <div class="moment"><span class="icon">🍽️</span><h3>Ses recettes</h3><p>Ces saveurs d'enfance qui nous suivront toute une vie, inimitables.</p></div>
+    <div class="moment"><span class="icon">📚</span><h3>Ses conseils</h3><p>Toujours les bons mots au bon moment, même quand on ne voulait pas les entendre.</p></div>
+    <div class="moment"><span class="icon">💪</span><h3>Sa force</h3><p>Elle porte tout avec grâce, sans jamais montrer le poids qu'elle soulève.</p></div>
+    <div class="moment"><span class="icon">❤️</span><h3>Son amour</h3><p>Inconditionnel, infini, le plus beau cadeau qu'on puisse recevoir.</p></div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="heart-banner">♡ Bonne Fête des Mères ♡</div>
+  <p class="footer-small">Avec tout l'amour du monde</p>
+</footer>
+
+<script>
+  const colors = ['#f9c0cc','#f4b896','#dcc0ec','#f9e0a0','#f4c2b0'];
+  const container = document.getElementById('petals');
+  for (let i = 0; i < 22; i++) {
+    const p = document.createElement('div');
+    p.className = 'petal';
+    const left = Math.random() * 100;
+    const dur  = 6 + Math.random() * 8;
+    const delay = Math.random() * 10;
+    const size = 12 + Math.random() * 14;
+    const rot  = Math.random() * 360;
+    p.style.cssText = `left:${left}%;width:${size}px;height:${size*1.3}px;background:${colors[Math.floor(Math.random()*colors.length)]};animation-duration:${dur}s;animation-delay:${delay}s;transform:rotate(${rot}deg);border-radius:${Math.random()>0.5?'50% 0 50% 0':'0 50% 0 50%'};`;
+    container.appendChild(p);
+  }
+</script>
+</body>
+</html>
